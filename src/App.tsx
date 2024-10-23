@@ -14,7 +14,7 @@ const App: React.FC = () => {
   return (
     <Router>
       <Routes>
-        <Route path="/num" element={<NumberLineGame />} />
+        <Route path="/" element={<NumberLineGame />} />
         <Route path="/mach" element={<FunctionMachine />} />
         <Route path="/place" element={<PlaceValueBlocks />}  />
         <Route path="/deriv" element={<DerivativeSuite />} />
