@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import './App.css';
 import NumberLine from './components/NumberLine';
 import Sidebar from './components/Sidebar';
@@ -57,19 +58,6 @@ const NumberLineGame: React.FC = () => {
         ]
       });
 
-
-    //   let messageContent = isCorrect 
-    //   ? `you are a teacher trying to teach a student the number line. Dont refer to them as "the student". The student performed the correct operation: ${userMoveExplanation} and moved to position ${newPosition}. Please explain why it was correct in a friendly tone, and offer praise. keep this under 100 words`
-    //   : `you are a teacher trying to teach a student the number line. Dont refer to them as "the student". The student incorrectly performed: ${userMoveExplanation} and ended at position ${newPosition}, while the correct operation was: ${expectedExplanation}, which should have led to position ${correctPosition}. Try to deduce the likely misunderstanding and provide a helpful hint. keep this under 200 words`;
-
-    // try {
-    //   const completion = await openai.chat.completions.create({
-    //     model: 'gpt-4o',
-    //     messages: [
-    //       { role: 'user', content: messageContent }
-    //     ],
-    //   });
-
       const aiFeedback = completion.choices[0].message?.content || 'Unable to generate feedback.';
       setFeedback(aiFeedback);
     } catch (error) {
@@ -84,6 +72,15 @@ const NumberLineGame: React.FC = () => {
 
   return (
     <div className="App">
+      <header className="header">
+        <nav>
+          <Link to="/chem">Chemical Balancer</Link>
+          <Link to="/frac">Fraction Factory</Link>
+          <Link to="/mach">Function Machine</Link>
+          <Link to="/deriv">Derivative Suite</Link>
+          <Link to="/place">Place Value Blocks</Link>
+        </nav>
+      </header>
       <div className="main-container">
         <Sidebar 
           question={`Tutor: Try to ${prompt.operation} ${prompt.value}.`} 
